@@ -1,0 +1,5 @@
+.DS_Store
+Thumb.db
+npm-debug.log
+node_modules
+tmp
