@@ -9,6 +9,6 @@ gulp.task 'cr-lf-replace', ->
   gulp
     .src './htdocs/**/*.html'
     .pipe crLfReplace
-      afterCode: 'CR+LF' # CR+LF, LF, CR
+      changeCode: 'CR+LF' # CR+LF, LF, CR
     .pipe gulp.dest './'
 ```
