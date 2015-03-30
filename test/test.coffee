@@ -14,7 +14,7 @@ describe 'gulp-cr-lf-replace', ->
 
   it "replace line feed code", (done) ->
     stream = CrLfReplace
-      afterCode: 'CR+LF'
+      changeCode: 'CR+LF'
     stream.on 'data', (file) ->
       fs.writeFile file.path, file.contents, 'binary', (err) ->
         if err then console.log err

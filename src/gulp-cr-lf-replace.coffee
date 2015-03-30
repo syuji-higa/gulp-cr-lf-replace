@@ -1,7 +1,13 @@
 through = require 'through2'
 { File } = require 'gulp-util'
+{ assign, clone } = require 'lodash'
 
-module.exports = (option) ->
+defOpts =
+  changeCode: 'LF'
+
+module.exports = (opts) ->
+
+  { changeCode } = assign clone(defOpts), opts
 
   transform = (file, encode, callback) ->
 
@@ -25,17 +31,14 @@ module.exports = (option) ->
     beforeContents = file.contents.toString()
 
     beforeCode = getBeforeCode beforeContents
-    afterCode = getAfterCode option.afterCode
+    afterCode = getAfterCode changeCode
 
     afterContents = beforeContents.replace beforeCode, afterCode
 
-    replaceFile = new File
-      path: file.path
-      contents: new Buffer afterContents, 'utf-8'
+    file.contents = new Buffer afterContents, 'utf-8'
 
-    @push replaceFile
+    @push file
     callback()
-
 
   # flush = (callback) ->
   #   callback()
