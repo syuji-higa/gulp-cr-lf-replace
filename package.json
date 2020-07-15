@@ -25,7 +25,7 @@
   "dependencies": {
     "coffee-script": "^1.8.0",
     "gulp-util": "^3.0.1",
-    "lodash": "^3.6.0",
+    "lodash": "^4.17.19",
     "through2": "^0.6.2"
   },
   "devDependencies": {
